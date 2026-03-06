@@ -4,9 +4,9 @@ Responsibilities:
 •	Receive incoming aircraft transponder data
 •	Check that received data is not obviously corrupted
 •	Pass valid data to be stored/updated in the system
-Collaborators (if any):
+Collaborators:
 •	AircraftDatabase
-Assumptions (if any):
+Assumptions:
 •	Data already comes in a standard format understood by this system
 •	Corrupted data can be detected in a simple way
 ------------------------------------------------------------------------------------------------------------------
@@ -17,9 +17,9 @@ Responsibilities:
 •	Update its stored information when new data arrives
 •	Provide its information to other parts of the system when requested
 
-Collaborators (if any):
+Collaborators:
 •	AircraftDatabase
-Assumptions (if any):
+Assumptions:
 •	Each aircraft has a unique identifier in the received data
 •	Only the latest state is needed for this assignment (no detailed history)
 ------------------------------------------------------------------------------------------------------------------
@@ -76,10 +76,10 @@ Responsibilities:
 •	Handle controller requests for more details about a specific aircraft
 •	Look up the requested aircraft in the database
 •	Return formatted details for display in a details panel or popup
-Collaborators (if any):
+Collaborators:
 •	AircraftDatabase
 •	Aircraft
-Assumptions (if any):
+Assumptions:
 •	The controller can choose an aircraft (e.g., by ID or clicking on the screen)
 •	There is some UI element to show the detailed information.
 
