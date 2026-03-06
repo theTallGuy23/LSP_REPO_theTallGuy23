@@ -1,1 +1,86 @@
+CRC Card
+Class: DataReceiver
+Responsibilities:
+•	Receive incoming aircraft transponder data
+•	Check that received data is not obviously corrupted
+•	Pass valid data to be stored/updated in the system
+Collaborators (if any):
+•	AircraftDatabase
+Assumptions (if any):
+•	Data already comes in a standard format understood by this system
+•	Corrupted data can be detected in a simple way
+------------------------------------------------------------------------------------------------------------------
+CRC Card
+Class: Aircraft
+Responsibilities:
+•	Store current information about a single aircraft (ID, type, position, speed, altitude, heading)
+•	Update its stored information when new data arrives
+•	Provide its information to other parts of the system when requested
+
+Collaborators (if any):
+•	AircraftDatabase
+Assumptions (if any):
+•	Each aircraft has a unique identifier in the received data
+•	Only the latest state is needed for this assignment (no detailed history)
+------------------------------------------------------------------------------------------------------------------
+CRC Card
+Class: AircraftDatabase
+Responsibilities:
+•	Keep a collection of all currently tracked Aircraft
+•	Add new Aircraft when a new ID appears
+•	Update existing Aircraft with new data from the receiver
+•	Find Aircraft by ID for queries and display
+•	Provide a list of all Aircraft for display and safety checks
+Collaborators:
+•	TransponderReceiver
+•	Aircraft
+•	ConflictDetector
+•	ControllerQueryHandler
+•	GraphicsDisplay
+Assumptions:
+•	Everything fits in memory for this small airport
+•	Old Aircraft are removed using some simple rule (e.g., no data for a while)
+--------------------------------------------------------------------------------------------------------------
+CRC Card
+Class: GraphicsDisplay
+Responsibilities:
+•	Draw all aircraft on the controller’s screen using the supplied view data
+•	Every 10 seconds, read all Aircraft from the database
+•	Build a simple view model (position and basic info) for the screen
+•	Show labels and basic flight info near each aircraft symbol
+•	Visually highlight aircraft that are in a dangerous situation
+Collaborators:
+•	ConflictDetector
+Assumptions:
+•	There is an existing UI framework to handle the actual drawing
+•	Highlighting rules (color, blinking) are defined elsewhere
+-------------------------------------------------------------------------------------------------------------
+CRC Card
+Class: ConflictDetector
+Responsibilities:
+•	Periodically analyze aircraft in the database for dangerous situations
+•	Detect pairs (or small groups) of aircraft that are too close or converging
+•	Mark or record which aircraft are in conflict so the display can show them
+Collaborators (if any):
+•	AircraftDatabase
+•	Aircraft
+•	GraphicsDisplay
+Assumptions (if any):
+•	Simple distance/altitude rules are enough to decide “dangerous”
+•	Checking can be done often enough to be useful (e.g., on each display update)
+----------------------------------------------------------------------------------------------------------------
+
+CRC Card
+Class: ControllerQueryHandler
+Responsibilities:
+•	Handle controller requests for more details about a specific aircraft
+•	Look up the requested aircraft in the database
+•	Return formatted details for display in a details panel or popup
+Collaborators (if any):
+•	AircraftDatabase
+•	Aircraft
+Assumptions (if any):
+•	The controller can choose an aircraft (e.g., by ID or clicking on the screen)
+•	There is some UI element to show the detailed information
+
 
