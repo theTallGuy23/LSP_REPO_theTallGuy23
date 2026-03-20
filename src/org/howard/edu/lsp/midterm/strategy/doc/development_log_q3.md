@@ -35,16 +35,9 @@ The AI assistance was primarily used as a learning and guidance tool. It helped 
 
 ---
 
-## Resource 2: Course Lecture Notes
 
-### What I Used
-- Lecture material on the **Strategy Pattern**
 
-### How It Helped
-- Provided the conceptual foundation for separating behaviors into different classes
-- Helped me understand when and why to use the Strategy Pattern
-
-## Resource 3: Java Documentation
+## Resource 2: Java Documentation
 
 ### What I Used
 - Basic Java syntax and structure for:
@@ -55,4 +48,4 @@ The AI assistance was primarily used as a learning and guidance tool. It helped 
 ---
 
 ## Conclusion
-I used AI, lecture notes, and java docmentation to write the code successfully. I used the java documentation to understand method overriding, lecture notes to understand which pattern to use to solve the problem, and AI to assist in writing the actual code.
+I used AI and java docmentation to write the code successfully. I used the java documentation to understand method overriding and AI to assist in writing the actual code.
