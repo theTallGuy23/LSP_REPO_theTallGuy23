@@ -27,13 +27,13 @@ Description: using locks instead of synchronization. Because our problem is race
 
 Code Snippet:
 
-import java.util.concurrent.locks.Lock;
+    import java.util.concurrent.locks.Lock;
 
-import java.util.concurrent.locks.ReentrantLock;
+    import java.util.concurrent.locks.ReentrantLock;
 
-private final Lock lock = new ReentrantLock();
+    private final Lock lock = new ReentrantLock();
 
-public void addRequest(String studentName) {
+    public void addRequest(String studentName) {
 
     lock.lock();
     
