@@ -26,17 +26,27 @@ No. According to Arthur Riel's heuristics, a class should hide its internal data
 Description: using locks instead of synchronization. Because our problem is race conditions, locking the resource and then freeing the resources after we are done executing what we have to do, guarantees that we won't have duplicate values. Locks are used as a solution to race conditions because they guarantee only one thread has access to the resources. 
 
 Code Snippet:
+
 import java.util.concurrent.locks.Lock;
+
 import java.util.concurrent.locks.ReentrantLock;
 
 private final Lock lock = new ReentrantLock();
 
 public void addRequest(String studentName) {
+
     lock.lock();
+    
     try {
+    
         int id = getNextId();
+        
         requests.add("Request-" + id + " from " + studentName);
+        
     } finally {
+    
         lock.unlock();
+        
     }
+    
 }
