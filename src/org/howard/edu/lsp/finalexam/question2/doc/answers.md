@@ -1,1 +1,3 @@
+# Design Explanation
 
+Template Method is used in the abstract "Report" class through the generateReport() method, which defines the fixed workflow for all reports. The workflow calls loadData(), formatHeader(), formatBody(), and formatFooter() in a consistent order. The subclasses "StudentReport" and "CourseReport" provide their own implementations of these steps to produce report-specific content. The template is the "Report" class, and the classes that implement the template are the "StudentReport" and "CourseReport" classes. If we had another class that we wanted to implement, we could have done just that, by just extending the abstract class "Report" and then overriding the methods that exist in it.
