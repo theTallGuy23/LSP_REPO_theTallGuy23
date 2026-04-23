@@ -10,7 +10,9 @@ Why addRequest() is unsafe: it's unsafe because it performs non-atomic operation
 
 ## Part 2:
 Fix A: Not correct because requests.add() is still unsafe. The nextId variable is protected but not the requests.add() function therefore it's not a complete fix.
+
 Fix B: Correct. The entire addRequest() function is protected. Only one thread can access the function, hence we can avoid race conditions from existing, which solves the problem.
+
 Fix C: Not correct. This only synchronizes access when returning the list. It does not protect nextId or requests.add() inside addRequest(). It's not helpful at all.
 
 ---
